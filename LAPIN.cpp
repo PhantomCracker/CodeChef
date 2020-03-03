@@ -13,24 +13,29 @@ int main() {
 
     while(t--) {
         std::cin >> s;
-        int mid;
-        if(s.length() % 2 == 0) {
-            mid = s.length() / 2;
-        } else {
-            mid = s.length() / 2 - 1;
-        }
 
-        int frequencyLeft[26] = {0};
-        int frequencyRight[26] = {0};
-        for(int i = 0; i < mid; i++) {
+        int frequencyLeft[30] = {0};
+        int frequencyRight[30] = {0};
+        for(int i = 0; i < s.length() / 2; i++) {
             frequencyLeft[s[i] - 'a']++;
         }
-        for(int i = mid; i < s.length(); i++) {
+        for(int i = s.length() / 2 + s.length() % 2; i < s.length(); i++) {
             frequencyRight[s[i] - 'a']++;
         }
 
-        for(int i = 0; i < s.length(); i++)
-            std::cout<< frequencyLeft[i] << " ";
+        int counter = 0;
+        for(int i = 0; i < 25; i++) {
+            counter++;
+            if(frequencyLeft[i] != frequencyRight[i]) {
+                break;
+            }
+        }
+        if(counter == 25) {
+            std::cout << "YES" << std::endl;
+        }
+        else {
+            std::cout << "NO" << std::endl;
+        }
 
     }
 
