@@ -8,18 +8,20 @@ int main() {
     int T;
     std::cin >> T;
     while (T--) {
-        int N, K;
+        int N;
+        long int K;
         std::cin >> N >> K;
-        int A[N];
+        long int A[N];
         for (int i = 0; i < N; i++) {
             std::cin >> A[i];
             if (K - A[i] >= 0) {
-                K = K - A[i];
                 std::cout << "1";
+                K = K - A[i];
             } else {
                 std::cout << "0";
             }
         }
+        std::cout << std::endl;
     }
     std::cout << std::endl;
     return 0;
