@@ -1,5 +1,5 @@
 process.stdin.resume();
-process.stdin.setEncoding('utf8');
+process.stdin.setEncoding('ascii');
 
 let userInput = '';
 let userInputArray = '';
